@@ -1,36 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>反馈中心</title>
+    <meta name="description" content="测试站反馈中心，展示提交流程、联系方式与版本说明。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body data-page="feedback">
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand-block">
+                <span class="brand-kicker">QA HUB</span>
+                <a class="brand-title" href="index.html">测试站控制台</a>
+            </div>
+            <nav class="site-nav" aria-label="主导航">
+                <a class="nav-link" href="index.html">首页</a>
+                <a class="nav-link" href="about.html">测试用例</a>
+                <a class="nav-link is-active" href="contact.html">反馈中心</a>
+            </nav>
+        </header>
 
-    <main>
-        <section class="content">
-            <h1>Contact Us</h1>
-            <p>Get in touch with us through the following methods:</p>
-            <ul style="margin: 1rem 0;">
-                <li>Email: contact@example.com</li>
-                <li>Phone: +1 (555) 123-4567</li>
-                <li>Address: 123 Main Street, City, State 12345</li>
-            </ul>
-        </section>
-    </main>
+        <main class="page-main">
+            <section class="page-hero compact">
+                <div>
+                    <p class="section-tag">反馈闭环</p>
+                    <h1>让问题记录、指派和回收有统一路径</h1>
+                    <p class="section-desc">
+                        通过标准提交流程和明确联系人窗口，减少重复沟通，提升问题收敛速度。
+                    </p>
+                </div>
+                <div class="glass-card release-note-card" id="releaseNote"></div>
+            </section>
 
-    <footer>
-        <p>&copy; 2026 Your Website. All rights reserved.</p>
-    </footer>
+            <section class="section-split">
+                <article class="glass-card">
+                    <div class="section-heading slim">
+                        <div>
+                            <p class="section-tag">提交流程</p>
+                            <h2>推荐反馈步骤</h2>
+                        </div>
+                    </div>
+                    <div class="process-list">
+                        <div class="process-step">
+                            <span>01</span>
+                            <div>
+                                <strong>定位环境</strong>
+                                <p>先标注环境、版本号、账号与出现时间，避免问题无法复现。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <span>02</span>
+                            <div>
+                                <strong>附上证据</strong>
+                                <p>提交截图、日志、接口报文或关键路径录屏，减少来回确认成本。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <span>03</span>
+                            <div>
+                                <strong>明确优先级</strong>
+                                <p>根据是否阻断主流程和影响范围，标记 P0、P1 或 P2。</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <span>04</span>
+                            <div>
+                                <strong>同步负责人</strong>
+                                <p>在缺陷单和沟通群中同步对应模块 owner，推进修复与回归。</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="side-column">
+                    <article class="glass-card">
+                        <div class="card-topline">
+                            <span class="panel-label">联系窗口</span>
+                            <span class="chip chip-outline">值班中</span>
+                        </div>
+                        <div class="contact-list" id="contactList"></div>
+                    </article>
+
+                    <article class="glass-card">
+                        <div class="card-topline">
+                            <span class="panel-label">提测提醒</span>
+                        </div>
+                        <ul class="signal-list">
+                            <li>主流程阻塞问题需在 10 分钟内同步到群组</li>
+                            <li>非阻塞问题统一进入版本缺陷池，按优先级排队处理</li>
+                            <li>回归通过后请补充结论和验证截图，形成闭环记录</li>
+                        </ul>
+                    </article>
+                </aside>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>反馈中心 · 标准化提测与问题同步入口</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
