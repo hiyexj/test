@@ -1,32 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>测试用例页</title>
+    <meta name="description" content="测试站用例看板，支持状态和优先级筛选。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body data-page="cases">
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand-block">
+                <span class="brand-kicker">QA HUB</span>
+                <a class="brand-title" href="index.html">测试站控制台</a>
+            </div>
+            <nav class="site-nav" aria-label="主导航">
+                <a class="nav-link" href="index.html">首页</a>
+                <a class="nav-link is-active" href="about.html">测试用例</a>
+                <a class="nav-link" href="contact.html">反馈中心</a>
+            </nav>
+        </header>
 
-    <main>
-        <section class="content">
-            <h1>About Us</h1>
-            <p>Learn more about our mission, vision, and the team behind this project.</p>
-            <p>This website is built with modern web technologies and best practices in mind.</p>
-        </section>
-    </main>
+        <main class="page-main">
+            <section class="page-hero compact">
+                <div>
+                    <p class="section-tag">用例中心</p>
+                    <h1>筛选本轮需要重点验证的测试项</h1>
+                    <p class="section-desc">
+                        用例卡片按状态、优先级和模块展示，便于联调时快速锁定阻塞点与回归范围。
+                    </p>
+                </div>
+                <div class="hero-mini-grid" id="caseSummary"></div>
+            </section>
 
-    <footer>
-        <p>&copy; 2026 Your Website. All rights reserved.</p>
-    </footer>
+            <section class="section-block">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <span class="filter-label">状态</span>
+                        <div class="pill-row" id="statusFilters"></div>
+                    </div>
+                    <div class="filter-group">
+                        <span class="filter-label">优先级</span>
+                        <div class="pill-row" id="priorityFilters"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-split">
+                <article class="case-board">
+                    <div class="section-heading slim">
+                        <div>
+                            <p class="section-tag">用例列表</p>
+                            <h2>当前测试集合</h2>
+                        </div>
+                        <p class="section-desc">列表会根据筛选条件即时刷新。</p>
+                    </div>
+                    <div class="case-grid" id="caseGrid"></div>
+                </article>
+
+                <aside class="side-column">
+                    <article class="glass-card">
+                        <div class="card-topline">
+                            <span class="panel-label">本轮结论</span>
+                            <span class="chip chip-cyan">建议继续回归</span>
+                        </div>
+                        <ul class="signal-list">
+                            <li>P0 项已覆盖登录、支付、消息三条主路径</li>
+                            <li>阻塞项集中在配置联动与数据回刷链路</li>
+                            <li>建议优先验证高并发与弱网场景</li>
+                        </ul>
+                    </article>
+
+                    <article class="glass-card">
+                        <div class="card-topline">
+                            <span class="panel-label">覆盖范围</span>
+                        </div>
+                        <div class="coverage-list">
+                            <div>
+                                <strong>支付链路</strong>
+                                <span>下单、支付、退款回执</span>
+                            </div>
+                            <div>
+                                <strong>消息中心</strong>
+                                <span>推送、已读态、红点同步</span>
+                            </div>
+                            <div>
+                                <strong>运营后台</strong>
+                                <span>筛选器、列表分页、权限校验</span>
+                            </div>
+                        </div>
+                    </article>
+                </aside>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>测试用例页 · 支持演示数据筛选与状态查看</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

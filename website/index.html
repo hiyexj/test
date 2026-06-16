@@ -1,36 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Website</title>
+    <title>测试站控制台</title>
+    <meta name="description" content="用于联调、验收与提测反馈的通用测试站。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body data-page="home">
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand-block">
+                <span class="brand-kicker">QA HUB</span>
+                <a class="brand-title" href="index.html">测试站控制台</a>
+            </div>
+            <nav class="site-nav" aria-label="主导航">
+                <a class="nav-link is-active" href="index.html">首页</a>
+                <a class="nav-link" href="about.html">测试用例</a>
+                <a class="nav-link" href="contact.html">反馈中心</a>
+            </nav>
+        </header>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to Our Website</h1>
-            <p>This is a modern, responsive website built from scratch.</p>
-        </section>
+        <main class="page-main">
+            <section class="hero-panel">
+                <div class="hero-copy">
+                    <div class="eyebrow-row">
+                        <span class="status-dot"></span>
+                        <span>当前环境：STAGING / 可提测</span>
+                    </div>
+                    <h1>一个给研发、测试、产品共用的提测入口。</h1>
+                    <p>
+                        集中展示本轮测试进度、风险状态、关键用例与反馈路径，
+                        让页面验收、功能走查和版本同步在一个入口完成。
+                    </p>
+                    <div class="hero-actions">
+                        <a class="primary-btn" href="about.html">查看测试用例</a>
+                        <a class="ghost-btn" href="contact.html">提交反馈说明</a>
+                    </div>
+                </div>
+                <aside class="hero-aside">
+                    <div class="glass-card stack-card">
+                        <p class="panel-label">本轮版本</p>
+                        <h2>Release 2.6.0-rc</h2>
+                        <p>支付链路、消息中心、运营配置已合并到本轮冒烟范围。</p>
+                    </div>
+                    <div class="hero-mini-grid" id="heroMetrics"></div>
+                </aside>
+            </section>
 
-        <section class="content">
-            <h2>Featured Section</h2>
-            <p>Add your content here to showcase your project, product, or service.</p>
-        </section>
-    </main>
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-tag">状态看板</p>
+                        <h2>一眼看清当前测试健康度</h2>
+                    </div>
+                    <p class="section-desc">通过率、阻塞项和活跃用例会同步到首页，便于快速判断是否进入下一轮验收。</p>
+                </div>
+                <div class="metrics-grid" id="metricsGrid"></div>
+            </section>
 
-    <footer>
-        <p>&copy; 2026 Your Website. All rights reserved.</p>
-    </footer>
+            <section class="section-split">
+                <article class="glass-card release-card">
+                    <div class="card-topline">
+                        <span class="panel-label">发布看板</span>
+                        <span class="chip chip-cyan">需关注 3 项</span>
+                    </div>
+                    <h2>本轮提测重点</h2>
+                    <ul class="signal-list">
+                        <li>核心支付流程已完成回归，待进行峰值压力验证</li>
+                        <li>消息中心未读态切换稳定，推送日志需补齐埋点</li>
+                        <li>后台筛选联动已打通，仍需验证极端条件组合</li>
+                    </ul>
+                </article>
+
+                <article class="glass-card timeline-card">
+                    <div class="card-topline">
+                        <span class="panel-label">最近更新</span>
+                        <span class="chip chip-outline">过去 24 小时</span>
+                    </div>
+                    <div class="timeline-list" id="updateTimeline"></div>
+                </article>
+            </section>
+
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-tag">快速入口</p>
+                        <h2>按任务类型直达对应区域</h2>
+                    </div>
+                </div>
+                <div class="link-grid">
+                    <a class="feature-link" href="about.html">
+                        <span class="feature-index">01</span>
+                        <strong>测试用例页</strong>
+                        <p>筛选状态、优先级和模块，快速定位本轮重点验证项。</p>
+                    </a>
+                    <a class="feature-link" href="contact.html">
+                        <span class="feature-index">02</span>
+                        <strong>反馈中心</strong>
+                        <p>查看反馈提交流程、负责人窗口与版本说明。</p>
+                    </a>
+                    <div class="feature-link feature-static">
+                        <span class="feature-index">03</span>
+                        <strong>交付说明</strong>
+                        <p>当前站点为纯静态演示方案，可直接部署到任意静态托管环境。</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>测试站控制台 · 2026 · 用于功能验收、联调展示与版本反馈</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
